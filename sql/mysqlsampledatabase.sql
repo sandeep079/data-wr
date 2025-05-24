@@ -1,3 +1,4 @@
+-- Active: 1747995697399@@127.0.0.1@3306@classicmodels
 /*
   Name: MySQL Sample Database classicmodels
   Link: http://www.mysqltutorial.org/mysql-sample-database.aspx
