@@ -239,6 +239,24 @@ FROM payments;
 
 
 
+--17
+CREATE VIEW customerInfo AS
+SELECT customers.`customerNumber`, customers.`customerName`, customers.`addressLine1`, customers.city, customers.country, orderCount.totalOrders AS totalOrders
+FROM customers
+JOIN 
+(
+    SELECT customers.`customerNumber`, COUNT(orders.`orderNumber`) AS totalOrders
+    FROM customers
+    JOIN orders
+    ON orders.`customerNumber`=customers.`customerNumber`
+    GROUP BY customers.`customerNumber`
+) AS orderCount
+ON orderCount.customerNumber = customers.`customerNumber`;
+
+
+
+
+
 --20
 SELECT customerNumber, customerName 
 FROM customers 
